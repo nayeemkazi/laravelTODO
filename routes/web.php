@@ -19,3 +19,5 @@ Route::get('/', function () {
 Route::get('/todos', 'TodosController@index');
 Route::post('/todos/create', 'TodosController@create');
 Route::get('/todos/{todo}', 'TodosController@destroy')->name('todos.destroy');
+Route::get('/todos/update/{todo}', 'TodosController@update')->name('todos.update');
+Route::post('/todos/edit/{id}', 'TodosController@edit')->name('todos.edit');

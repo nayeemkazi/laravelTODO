@@ -19,7 +19,11 @@
             <ul class="list-group list-group-flush">
             @foreach($todos as $todo)    
                 <li class="list-group-item  d-flex justify-content-between">{{$todo->todo}}
-                    <a href="/todos/{{$todo->id}}" class="btn btn-danger">x</a>
+                    <div class="inline-block">
+                        
+                        <a href="/todos/{{$todo->id}}" class="btn btn-danger">x</a>
+                        <a href="/todos/update/{{$todo->id}}" class="btn btn-info">u</a>
+                    </div>
                 </li>
             @endforeach
            

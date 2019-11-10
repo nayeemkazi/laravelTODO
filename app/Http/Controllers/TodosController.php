@@ -32,4 +32,19 @@ class TodosController extends Controller
         return redirect()->back();
         // dd($deletable);
     }
+
+    public function update($todo)
+    {
+        $todo = Todo::find($todo);
+        return view('update', compact('todo'));
+    }
+
+    public function edit($id)
+    {
+        $todo = Todo::find($id);
+        $todo->todo = request('todo');
+        $todo->save();
+
+        return redirect('/todos');
+    }
 }
