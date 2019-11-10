@@ -20,9 +20,16 @@
             @foreach($todos as $todo)    
                 <li class="list-group-item  d-flex justify-content-between">{{$todo->todo}}
                     <div class="inline-block">
+                        @if(!$todo->completed)
+                            <a href="/todos/completed/{{$todo->id}}" class="btn btn-sm btn-dark">✓</a>
+                                                 
+                        @else
+                            <a href="/todos/completed/{{$todo->id}}" class="btn btn-sm btn-success">✓</a>
                         
-                        <a href="/todos/{{$todo->id}}" class="btn btn-danger">x</a>
-                        <a href="/todos/update/{{$todo->id}}" class="btn btn-info">u</a>
+                        @endif
+                        <a href="/todos/{{$todo->id}}" class="btn btn-sm btn-danger">x</a>
+                        <a href="/todos/update/{{$todo->id}}" class="btn btn-sm btn-info">u</a>
+                        
                     </div>
                 </li>
             @endforeach
