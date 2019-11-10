@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Todo;
+use Illuminate\Http\Request;
+
+class TodosController extends Controller
+{
+    public function index()
+    {
+        $todos = Todo::all();
+        //dd($todos);
+        return view('todos', compact('todos'));
+    }
+
+    public function create()
+    {
+        // dd(request('todo'));
+        $todo = new Todo;
+        $todo->todo = request('todo');
+        $todo->save();
+
+        return redirect()->back();
+    }
+
+    public function destroy($todo)
+    {
+        $deletable = Todo::find($todo);
+        $deletable->delete();
+
+        return redirect()->back();
+        // dd($deletable);
+    }
+}
