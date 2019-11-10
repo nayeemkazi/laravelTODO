@@ -9,7 +9,11 @@ class TodosController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
+        // (Todo::class)->orderBy('created_at', 'DESC');
+        $todos = Todo::all()->reverse();
+
+        // dd(Todo::all()->reverse());
+        // $todos->todo->latest();
         //dd($todos);
         return view('todos', compact('todos'));
     }
